@@ -8,12 +8,13 @@ document.getElementById("saveprofile").onclick = function(){
         "empLastName":$('#lname').val(),
     "empAge":$('#empage').val()           
       };
-  $.ajax({
-        url: API_ENDPOINT,
-        type: 'POST',
-        data:  JSON.stringify(inputData)  ,
-        contentType: 'application/json; charset=utf-8',
-        success: function (response) {
+$.ajax({
+    url: API_ENDPOINT,
+    type: 'POST',
+    data: inputData, // Remove JSON.stringify
+    contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+    success: function (response) {
+        // ... {
           document.getElementById("profileSaved").innerHTML = "Profile Saved!";
         },
         error: function () {
